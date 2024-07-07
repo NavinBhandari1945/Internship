@@ -11,8 +11,7 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  String? groupValue = 'hi'; // Make groupValue a member variable
-
+  String? groupValue = 'en'; // Make groupValue a member variable
   @override
   Widget build(BuildContext context) {
     return Scaffold(

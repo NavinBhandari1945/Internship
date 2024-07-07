@@ -1,24 +1,13 @@
-import 'package:demo1_int/UI/bloc_pr1_02/Home.dart';
-// import 'package:demo1_int/UI/internationalization_06/controller/language_change_controller.dart';
-// import 'package:demo1_int/UI/lazyLoading_NetworkCache_05/Pr1.dart';
-// import 'package:demo1_int/src/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-// import 'UI/internationalization_06/pr1.dart';
+import 'UI/authentication_08/Home.dart';
 import 'UI/internationalization_06/screen/home_screen.dart';
+import 'UI/search_sort_07/Home1_07.dart';
 import 'bloc/bloc_pr1/bloc_pr1_bloc.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'generated/l10n.dart';
-// import 'package:flutter_bloc_localization/l10n/l10n.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +17,7 @@ void main() async {
   );
   await Hive.initFlutter();
   final hive_box=await Hive.openBox("Hive_demo1_int");
-  runApp(const MyApp_l10n());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -46,16 +35,19 @@ class _MyAppState extends State<MyApp> {
     return
         BlocProvider(create: (context) =>Pr1Bloc() ,
         child:MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home:HomePage() ,
+          home:Home_08() ,
         ) ,
         );
   }
 }
+
+//for internationalization
 
 class MyApp_l10n extends StatefulWidget {
   const MyApp_l10n({super.key});
@@ -64,9 +56,10 @@ class MyApp_l10n extends StatefulWidget {
   static void setLocale(BuildContext cotext,Locale newLocale){
     _MyApp_l10nState? state=cotext.findAncestorStateOfType<_MyApp_l10nState>();
     state?.setLocale(newLocale);
-
   }
 }
+
+
 
 class _MyApp_l10nState extends State<MyApp_l10n> {
   Locale? _locale;
@@ -74,7 +67,6 @@ class _MyApp_l10nState extends State<MyApp_l10n> {
     setState(() {
       _locale=locale;
     });
-
   }
   @override
   Widget build(BuildContext context) {

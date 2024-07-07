@@ -1,20 +1,21 @@
-import 'package:demo1_int/bloc/bloc_pr1/bloc_pr1_bloc.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:demo1_int/UI/authentication_08/commonbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:velocity_x/velocity_x.dart';
+import '../../bloc/bloc_pr1/bloc_pr1_bloc.dart';
 import '../supabase_data_01/DeleteData.dart';
 import '../supabase_data_01/InsertData.dart';
 import '../supabase_data_01/UpdateData.dart';
+import 'login.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Home_08 extends StatefulWidget {
+  const Home_08({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Home_08> createState() => _Home_08State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _Home_08State extends State<Home_08> {
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     final shortestval=MediaQuery.of(context).size.shortestSide;
     return Scaffold(
         appBar: AppBar(
-          title: Text("Bloc pr1 home screeen"),
+          title: Text("Bloc pr1 home screeen_08"),
         ),
         body:Container(
           height: 400,
@@ -145,6 +146,14 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 5,
               ),
+
+              Commonbutton("Login",(){
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Login_08();
+                },));
+
+              }, context)
 
             ],
           ),
