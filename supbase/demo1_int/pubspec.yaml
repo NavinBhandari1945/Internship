@@ -60,7 +60,9 @@ dependencies:
   go_router:
   animate_do:
   intl_utils: ^2.7.0
-  google_sign_in: 
+  google_sign_in:
+  web: ^0.5.1
+
 
 
 

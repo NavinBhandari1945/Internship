@@ -31,15 +31,17 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children:
             [
-
               Expanded(
-                child: BlocBuilder<Pr1Bloc, Pr1State>(
-                  builder: (context, state) {
+                child:
+                BlocBuilder<Pr1Bloc, Pr1State>(
+                  builder: (context, state)
+                  {
                     if(state.list!.isEmpty){
                       return Text("list empty",style: TextStyle(fontSize: 30),);
                     }
                     else if(state.list!.isNotEmpty) {
-                      return ListView.builder(
+                      return
+                        ListView.builder(
                         itemCount: state.list!.length,
                         itemBuilder: (context, index) =>
                             Padding(

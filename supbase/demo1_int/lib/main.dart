@@ -1,22 +1,35 @@
+import 'package:demo1_int/UI/skeleton_shimmer_09/Home_09.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'UI/authentication_08/Home.dart';
+import 'UI/bloc_pr1_02/Home.dart';
 import 'UI/internationalization_06/screen/home_screen.dart';
-import 'UI/search_sort_07/Home1_07.dart';
 import 'bloc/bloc_pr1/bloc_pr1_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() async {
+//code 1
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Supabase.initialize(
+//     url:"https://fsbzejvfdvvorfeuylrb.supabase.co",
+//     anonKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzYnplanZmZHZ2b3JmZXV5bHJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk2NTQ5MTQsImV4cCI6MjAzNTIzMDkxNH0.i--PRZhDGC0Krkhv3pm94EISabVRnmyEoL0rF4VJgoo",
+//   );
+//   await Hive.initFlutter();
+//   final hive_box=await Hive.openBox("Hive_demo1_int");
+//   runApp(const MyApp());
+// }
+
+
+//donor app 01
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Supabase.initialize(
-    url:"https://fsbzejvfdvvorfeuylrb.supabase.co",
-    anonKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzYnplanZmZHZ2b3JmZXV5bHJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk2NTQ5MTQsImV4cCI6MjAzNTIzMDkxNH0.i--PRZhDGC0Krkhv3pm94EISabVRnmyEoL0rF4VJgoo",
+    url: 'https://lqevkoivmmqwzumdfgef.supabase.co/',
+    anonKey:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxxZXZrb2l2bW1xd3p1bWRmZ2VmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg4NjExNDMsImV4cCI6MjAzNDQzNzE0M30.QYnGKTBuyUjFFGGcJmCH-CABN4mcKndOc2hzw12SU_M',
   );
-  await Hive.initFlutter();
-  final hive_box=await Hive.openBox("Hive_demo1_int");
   runApp(const MyApp());
 }
 
@@ -41,7 +54,7 @@ class _MyAppState extends State<MyApp> {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home:Home_08() ,
+          home:HomePage(),
         ) ,
         );
   }
